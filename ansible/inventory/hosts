@@ -1,0 +1,3 @@
+[monitoring]
+18.191.136.7 ansible_user=ubuntu ansible_private_key_file=../keys/roninzp.pem
+

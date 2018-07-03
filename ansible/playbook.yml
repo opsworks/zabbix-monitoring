@@ -1,0 +1,12 @@
+### playbook.yml
+---
+- name: Init monitoring container
+  hosts: monitoring
+  become: true
+  gather_facts: true
+  remote_user: ubuntu
+  tasks:
+    - name: Run zabbix-appliance
+      command: sudo docker run --name zabbix-appliance -p 80:80 -p 10051:10051 -d zabbix/zabbix-appliance
+
+

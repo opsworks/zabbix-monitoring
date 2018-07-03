@@ -1,0 +1,5 @@
+# .tfvars files
+*.tfvars
+
+*/keys/*
+.env
