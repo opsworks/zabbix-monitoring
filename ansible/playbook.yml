@@ -6,10 +6,30 @@
   gather_facts: false
   remote_user: ubuntu
   tasks:
-    - name: Clone repository
-      command: git clone https://github.com/roninzp/zabbix-monitoring.git
+#    - name: Check that the zabbix-monitoring exists
+#      stat:
+#        path: zabbix-monitoring
+#      register: stat_result
+    - name: Copy monitoring start files
+      copy:
+        src: ../zabbix
+        dest: /root
+        force: yes
+#    - name: Clone repository
+#      command: git clone https://github.com/roninzp/zabbix-monitoring.git 
+#      when: stat_result.stat.exists == False
+#    - name: Update repository
+#      command: git pull
+#      args:
+#        chdir: /home/ubuntu/zabbix-monitoring
+#      when: stat_result.stat.exists == True
+#    - name: Copy docker-compose config
+#      command: cp -rf zabbix /root/
+#      args:
+#        chdir: /home/ubuntu/zabbix-monitoring
     - name: Start zabbix
-      command: cd zabbix-monitoring
       command: docker-compose -f ./docker-compose.yaml up -d
+      args:
+        chdir: /root/zabbix
 
 
