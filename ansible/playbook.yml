@@ -3,10 +3,13 @@
 - name: Init monitoring container
   hosts: monitoring
   become: true
-  gather_facts: true
+  gather_facts: false
   remote_user: ubuntu
   tasks:
-    - name: Run zabbix-appliance
-      command: sudo docker run --name zabbix-appliance -p 80:80 -p 10051:10051 -d zabbix/zabbix-appliance
+    - name: Clone repository
+      command: git clone https://github.com/roninzp/zabbix-monitoring.git
+    - name: Start zabbix
+      command: cd zabbix-monitoring
+      command: docker-compose -f ./docker-compose.yaml up -d
 
 
