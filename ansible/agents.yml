@@ -1,0 +1,26 @@
+---
+- name: Install agents
+  hosts: agents
+  become: true
+  gather_facts: false
+  remote_user: ubuntu
+  tasks:
+    - name: download and install configuration repository
+      apt:
+        deb: http://repo.zabbix.com/zabbix/3.4/ubuntu/pool/main/z/zabbix-release/zabbix-release_3.4-1+xenial_all.deb
+    - name: update pakages list
+      apt:
+        update_cache: yes
+    - name: install zabbix agent
+      apt:
+        name: zabbix-agent
+        state: present
+    - name: change server ip
+      replace: 
+        path: /etc/zabbix/zabbix_agentd.conf
+        regexp: '(\s+)Server=127\.0\.0\.1(\s+.*)?$'
+        replace: '\1Server=52.211.54.252\2'
+    - name: start zabbix agent
+      service:
+        name: zabbix-agent
+        state: started

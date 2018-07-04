@@ -4,14 +4,6 @@ resource "aws_security_group" "monitoring" {
         Name = "monitoring"
   }
 
-# Allow all inbound
-  ingress {
-    from_port   = 0
-    to_port     = 65535
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
   ingress {
     from_port   = 22
     to_port     = 22
@@ -65,13 +57,6 @@ resource "aws_security_group" "monitoring" {
     from_port   = 10071
     to_port     = 10071
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 0
-    to_port     = 65535
-    protocol    = "udp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 

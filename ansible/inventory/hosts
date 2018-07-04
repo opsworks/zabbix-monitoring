@@ -1,3 +1,9 @@
 [monitoring]
-52.14.86.183 ansible_user=ubuntu ansible_private_key_file=keys/roninzp.pem
+52.211.54.252 ansible_user=ubuntu ansible_private_key_file=keys/alitu.pem
+
+[agents]
+34.242.64.117 ansible_user=ubuntu ansible_private_key_file=keys/alitu.pem
+52.213.147.28 ansible_user=ubuntu ansible_private_key_file=keys/alitu.pem
+
+
 

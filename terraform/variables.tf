@@ -1,6 +1,6 @@
 variable "ami" {
   description = "Ubuntu 16.04 Linux AMI"
-  default = "ami-6a003c0f"
+  default = "ami-58d7e821"
 }
 
 variable "instance_type" {
@@ -10,7 +10,7 @@ variable "instance_type" {
 
 variable "key_name" {
   description = "Desired name of Keypair..."
-  default = "roninzp"
+  default = "podcast-host"
 }
 
 variable "bootstrap_path" {

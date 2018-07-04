@@ -11,7 +11,7 @@ resource "aws_instance" "monitoring" {
   vpc_security_group_ids = ["${aws_security_group.monitoring.id}"]
 
 tags {
-    Name  = "podcast-monitoring"
+    Name  = "alitu-monitoring"
   }
 }
 
