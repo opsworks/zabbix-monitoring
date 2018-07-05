@@ -1,0 +1,14 @@
+---
+- name: Install monitoring templates
+  hosts: monitoring
+  become: true
+  gather_facts: false
+  remote_user: ubuntu
+  tasks:
+    - name: Install ICMP Ping template
+      copy:
+        src: ../zabbix/templates/Template_Module_ICMP_Ping_3.4.0.xml
+        dest: /root/zabbix/zbx_env/var/lib/zabbix/modules/
+        force: yes
+
+
